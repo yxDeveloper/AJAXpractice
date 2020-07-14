@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>同步模式的AJAX</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var xhr = new XMLHttpRequest()
+			xhr.open('GET','time.php','false')
+			xhr.send(null)
+			console.log(xhr.readyState) 
+			xhr.onreadystatechange = function () {
+				console.log(this.readyState)
+			}
+			
+			var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : ActiveXObject('Microsoft.XMLHTTP')
+			xhr.open('GET','time.php',true)
+			xhr.send(null)
+			// 一定要注意事件注册时间问题
+			xhr.onreadystatechange = function () {
+				console.log(this.readyState)
+			}
+			
+		</script>
+		
+		
+	</body>
+</html>

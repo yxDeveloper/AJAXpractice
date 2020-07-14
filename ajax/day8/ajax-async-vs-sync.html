@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// console.time('abc')
+			// for(var i = 0;i < 10000000; i++) {}
+			// console.timeEnd('abc')
+			
+			// console.log('begin request')
+			var xhrAsync = window.XMLHttpRequest ? new XMLHttpRequest() : ActiveXObject('Microsoft.XMLHTTP')
+			// open 方法的第三个参数是async 可以传入一个布尔值,默认为 true
+			xhrAsync.open('GET','time.php','true')
+			console.time('async')
+			xhrAsync.send(null)
+			console.log(xhrAsync.responseText)
+			console.log('end request')
+			console.timeEnd('async')
+			
+			
+			// 同步模式 ajax 操作会有楞等的情况
+			// 区别在于 send 方法会不会出现等待情况
+			console.log('begin request')
+			var xhrSync = new XMLHttpRequest()
+			// open 方法的第三个参数是async 可以传入一个布尔值,默认为true
+			xhrSync.open('GET','time.php',false)
+			console.time('sync')
+			xhrSync.send(null)
+			console.log(xhrSync.responseText)
+			console.log('end request')
+			console.timeEnd('sync')
+			
+			
+			
+		</script>
+	</body>
+</html>
