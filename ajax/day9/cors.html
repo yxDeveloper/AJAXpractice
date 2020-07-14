@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>AJAX 跨域请求</title>
+</head>
+<body>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$.get('http://localhost/cors.php',{},function (res) {
+			console.log(res)
+		})
+		// $.ajax({
+		// 	url: 'http://localhost/cors.php',
+		// 	type: 'get',
+		// 	dataType: 'jsonp',
+		// 	success: function (res) {
+		// 		console.log(res)
+		// 	}
+		// })
+	</script>
+</body>
+</html>
